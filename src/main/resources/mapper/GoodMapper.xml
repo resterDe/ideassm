@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ideabobo.service.GoodMapper">
+  <resultMap id="BaseResultMap" type="com.ideabobo.model.Good">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="gname" jdbcType="VARCHAR" property="gname" />
+    <result column="price" jdbcType="VARCHAR" property="price" />
+    <result column="jifen" jdbcType="VARCHAR" property="jifen" />
+    <result column="note" jdbcType="VARCHAR" property="note" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="img" jdbcType="VARCHAR" property="img" />
+    <result column="count" jdbcType="VARCHAR" property="count" />
+    <result column="typeid" jdbcType="VARCHAR" property="typeid" />
+    <result column="xiaoliang" jdbcType="INTEGER" property="xiaoliang" />
+    <result column="ownid" jdbcType="VARCHAR" property="ownid" />
+    <result column="sid" jdbcType="VARCHAR" property="sid" />
+    <result column="shop" jdbcType="VARCHAR" property="shop" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="uid" jdbcType="VARCHAR" property="uid" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="ntime" jdbcType="BIGINT" property="ntime" />
+    <result column="level" jdbcType="INTEGER" property="level" />
+    <result column="stype" jdbcType="VARCHAR" property="stype" />
+    <result column="statecn" jdbcType="VARCHAR" property="statecn" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, gname, price, jifen, note, type, img, count, typeid, xiaoliang, ownid, sid, shop, 
+    tel, uid, username, ntime, level, stype, statecn
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from wct_good
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from wct_good
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ideabobo.model.Good">
+    insert into wct_good (id, gname, price, 
+      jifen, note, type, 
+      img, count, typeid, 
+      xiaoliang, ownid, sid, 
+      shop, tel, uid, username, 
+      ntime, level, stype, 
+      statecn)
+    values (#{id,jdbcType=INTEGER}, #{gname,jdbcType=VARCHAR}, #{price,jdbcType=VARCHAR}, 
+      #{jifen,jdbcType=VARCHAR}, #{note,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
+      #{img,jdbcType=VARCHAR}, #{count,jdbcType=VARCHAR}, #{typeid,jdbcType=VARCHAR}, 
+      #{xiaoliang,jdbcType=INTEGER}, #{ownid,jdbcType=VARCHAR}, #{sid,jdbcType=VARCHAR}, 
+      #{shop,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, #{uid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
+      #{ntime,jdbcType=BIGINT}, #{level,jdbcType=INTEGER}, #{stype,jdbcType=VARCHAR}, 
+      #{statecn,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ideabobo.model.Good">
+    insert into wct_good
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="gname != null">
+        gname,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="jifen != null">
+        jifen,
+      </if>
+      <if test="note != null">
+        note,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="img != null">
+        img,
+      </if>
+      <if test="count != null">
+        count,
+      </if>
+      <if test="typeid != null">
+        typeid,
+      </if>
+      <if test="xiaoliang != null">
+        xiaoliang,
+      </if>
+      <if test="ownid != null">
+        ownid,
+      </if>
+      <if test="sid != null">
+        sid,
+      </if>
+      <if test="shop != null">
+        shop,
+      </if>
+      <if test="tel != null">
+        tel,
+      </if>
+      <if test="uid != null">
+        uid,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="ntime != null">
+        ntime,
+      </if>
+      <if test="level != null">
+        level,
+      </if>
+      <if test="stype != null">
+        stype,
+      </if>
+      <if test="statecn != null">
+        statecn,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="gname != null">
+        #{gname,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=VARCHAR},
+      </if>
+      <if test="jifen != null">
+        #{jifen,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null">
+        #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="img != null">
+        #{img,jdbcType=VARCHAR},
+      </if>
+      <if test="count != null">
+        #{count,jdbcType=VARCHAR},
+      </if>
+      <if test="typeid != null">
+        #{typeid,jdbcType=VARCHAR},
+      </if>
+      <if test="xiaoliang != null">
+        #{xiaoliang,jdbcType=INTEGER},
+      </if>
+      <if test="ownid != null">
+        #{ownid,jdbcType=VARCHAR},
+      </if>
+      <if test="sid != null">
+        #{sid,jdbcType=VARCHAR},
+      </if>
+      <if test="shop != null">
+        #{shop,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="uid != null">
+        #{uid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="ntime != null">
+        #{ntime,jdbcType=BIGINT},
+      </if>
+      <if test="level != null">
+        #{level,jdbcType=INTEGER},
+      </if>
+      <if test="stype != null">
+        #{stype,jdbcType=VARCHAR},
+      </if>
+      <if test="statecn != null">
+        #{statecn,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ideabobo.model.Good">
+    update wct_good
+    <set>
+      <if test="gname != null">
+        gname = #{gname,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=VARCHAR},
+      </if>
+      <if test="jifen != null">
+        jifen = #{jifen,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null">
+        note = #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="img != null">
+        img = #{img,jdbcType=VARCHAR},
+      </if>
+      <if test="count != null">
+        count = #{count,jdbcType=VARCHAR},
+      </if>
+      <if test="typeid != null">
+        typeid = #{typeid,jdbcType=VARCHAR},
+      </if>
+      <if test="xiaoliang != null">
+        xiaoliang = #{xiaoliang,jdbcType=INTEGER},
+      </if>
+      <if test="ownid != null">
+        ownid = #{ownid,jdbcType=VARCHAR},
+      </if>
+      <if test="sid != null">
+        sid = #{sid,jdbcType=VARCHAR},
+      </if>
+      <if test="shop != null">
+        shop = #{shop,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        tel = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="uid != null">
+        uid = #{uid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="ntime != null">
+        ntime = #{ntime,jdbcType=BIGINT},
+      </if>
+      <if test="level != null">
+        level = #{level,jdbcType=INTEGER},
+      </if>
+      <if test="stype != null">
+        stype = #{stype,jdbcType=VARCHAR},
+      </if>
+      <if test="statecn != null">
+        statecn = #{statecn,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ideabobo.model.Good">
+    update wct_good
+    set gname = #{gname,jdbcType=VARCHAR},
+      price = #{price,jdbcType=VARCHAR},
+      jifen = #{jifen,jdbcType=VARCHAR},
+      note = #{note,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      img = #{img,jdbcType=VARCHAR},
+      count = #{count,jdbcType=VARCHAR},
+      typeid = #{typeid,jdbcType=VARCHAR},
+      xiaoliang = #{xiaoliang,jdbcType=INTEGER},
+      ownid = #{ownid,jdbcType=VARCHAR},
+      sid = #{sid,jdbcType=VARCHAR},
+      shop = #{shop,jdbcType=VARCHAR},
+      tel = #{tel,jdbcType=VARCHAR},
+      uid = #{uid,jdbcType=VARCHAR},
+      username = #{username,jdbcType=VARCHAR},
+      ntime = #{ntime,jdbcType=BIGINT},
+      level = #{level,jdbcType=INTEGER},
+      stype = #{stype,jdbcType=VARCHAR},
+      statecn = #{statecn,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
